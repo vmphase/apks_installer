@@ -1,0 +1,5 @@
+platform-tools/
+samples/
+*.apks
+*.exe
+*.o
