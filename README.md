@@ -29,14 +29,17 @@ With make:
 make
 ```
 
+
 Without make:
 
 ```
 # Windows
-gcc -std=gnu99 -O2 -Wall -Wextra src/main.c src/apks.c src/install.c src/adb_win.c src/adb_posix.c miniz/miniz.c -o apks_installer.exe -lws2_32
+gcc -std=gnu99 -O2 -w -c miniz/miniz.c -o miniz/miniz.o
+gcc -std=gnu99 -O2 -Wall -Wextra -isystem miniz src/main.c src/apks.c src/install.c src/adb_win.c src/adb_posix.c miniz/miniz.o -o apks_installer.exe -lws2_32
 
 # Linux / macOS
-gcc -std=gnu99 -O2 -Wall -Wextra src/main.c src/apks.c src/install.c src/adb_win.c src/adb_posix.c miniz/miniz.c -o apks_installer
+gcc -std=gnu99 -O2 -w -c miniz/miniz.c -o miniz/miniz.o
+gcc -std=gnu99 -O2 -Wall -Wextra -isystem miniz src/main.c src/apks.c src/install.c src/adb_win.c src/adb_posix.c miniz/miniz.o -o apks_installer
 ```
 
 ## Usage
